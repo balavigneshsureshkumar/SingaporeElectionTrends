@@ -1552,7 +1552,7 @@ year,constituency,constituency_type,candidates,party,vote_count,vote_percentage,
 2025,Chua Chu Kang,GRC,A'bas Bin Kasmani | Wendy Low Wei Ling | Lawrence Pek Eng Leong | S Nallakaruppan,PSP,31562,0.364,West
 2025,Chua Chu Kang,GRC,Choo Pei Ling | Jeffrey Siow | Tan See Leng | Zhulkarnain Abdul Rahim,PAP,55140,0.636,West
 2025,East Coast,GRC,Dinesh Vasu Dash | Hazlina Binte Abdul Halim | Tan Kiat How | Tan Soon Neo Jessica | Tong Chun Fai Edwin Charles,PAP,80105,0.5873,East
-2025,East Coast,GRC,"Koh Kim Kui, Nathaniel | Kuan Hon Whye, Jasper | Paris V Parameswari | Sufyan Mikhail Putra Mohd Kamil | Yee Jenn Jong",,56288,0.4127,East
+2025,East Coast,GRC,"Koh Kim Kui, Nathaniel | Kuan Hon Whye, Jasper | Paris V Parameswari | Sufyan Mikhail Putra Mohd Kamil | Yee Jenn Jong",WP,56288,0.4127,East
 2025,Hougang,SMC,Marshall Lim Yu Hui,PAP,10327,0.3785,East
 2025,Hougang,SMC,Dennis Tan Lip Fong,WP,16956,0.6215,East
 2025,Holland-Bukit Timah,GRC,Edward Chia Bing Hui | Christopher De Souza | Sim Ann | Vivian Balakrishnan,PAP,86936,0.7925,Central
