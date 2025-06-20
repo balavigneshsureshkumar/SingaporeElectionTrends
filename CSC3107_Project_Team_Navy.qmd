@@ -124,5 +124,40 @@ ggplot(party_trend, aes(x = year, y = vote_share, group = party_clean, color = p
     subtitle = "Smoothed curves with actual vote share labels per year"
   )
 
+library(purrr)
+# Create a plot for each region
+region_sparkplots <- split(region_party_performance, region_party_performance$region) %>%
+  map(~{
+    ggplot(.x, aes(x = year, y = vote_share_region, group = party_clean, color = party_clean)) +
+      geom_xspline(size = 1, spline_shape = -0.6) +
+      geom_point(size = 2) +
+      geom_text(aes(label = round(vote_share_region, 2)), vjust = -1.5, size = 3, show.legend = FALSE) +
+      facet_wrap(~ party_clean, scales = "free_y", ncol = 1, strip.position = "left") +
+      scale_x_continuous(
+        breaks = unique(.x$year),
+        guide = guide_axis(check.overlap = TRUE)
+      ) +
+      scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+      coord_cartesian(clip = "off") +
+      theme_minimal(base_size = 12) +
+      theme(
+        strip.text = element_text(face = "bold"),
+        axis.title = element_blank(),
+        legend.position = "none",
+        panel.grid.minor = element_blank(),
+        panel.spacing = unit(1, "lines"),
+        plot.margin = margin(t = 20, r = 20, b = 10, l = 10),
+        axis.text.x = element_text(angle = 45, hjust = 1)
+      ) +
+      labs(
+        title = paste("Sparkline Trend: Vote Share by Party in", unique(.x$region)),
+        subtitle = "Smoothed curves with actual vote share labels per year"
+      )
+  })
 
+region_sparkplots[["Central"]]
+region_sparkplots[["West"]]
+region_sparkplots[["East"]]
+region_sparkplots[["North"]]
+region_sparkplots[["North-East"]]
 ```
