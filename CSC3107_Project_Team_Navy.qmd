@@ -99,7 +99,7 @@ print(region_party_trends, n = Inf)
 
 # Sparkline-style plot with year ticks and percentage labels
 ggplot(party_trend, aes(x = year, y = vote_share, group = party_clean, color = party_clean)) +
-  geom_xspline(size = 1, spline_shape = -0.6) +  # smooth curved lines
+  geom_xspline(size = 1, spline_shape = -0.6) + 
   geom_point(size = 2) +
   geom_text(aes(label = round(vote_share, 2)), vjust = -1.5, size = 3, show.legend = FALSE) +
   facet_wrap(~ party_clean, scales = "free_y", ncol = 1, strip.position = "left") +
@@ -125,7 +125,7 @@ ggplot(party_trend, aes(x = year, y = vote_share, group = party_clean, color = p
   )
 
 library(purrr)
-# Create a plot for each region
+
 region_sparkplots <- split(region_party_performance, region_party_performance$region) %>%
   map(~{
     ggplot(.x, aes(x = year, y = vote_share_region, group = party_clean, color = party_clean)) +
