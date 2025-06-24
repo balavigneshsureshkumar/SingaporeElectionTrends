@@ -1,86 +1,104 @@
 ---
-title: This is an academic poster with typst and quarto!
+title: "Singapore Election Trends Analysis"
 format:
   poster-typst: 
     size: "36x24"
-    poster-authors: "A. Smith, B. Jones, C. Brown, D. Miller"
-    departments: "Department of Computer Science"
-    institution-logo: "./images/ncstate.png"
-    footer-text: "posit::conf 2023"
-    footer-url: "https://posit.co/conference/"
-    footer-emails: "abc@example.com"
+    poster-authors: "Dan Lai Kai Yi, Ng Jia Wei, Suresh Kumar Balavignesh, Kumar Devadharshini, Putri Nadrah Binte Jefreydin, Tan De Wei"
+    departments: "School of Computing, Singapore Institute of Technology"
+    institution-logo: "./images/sit-logo.png"
+    footer-text: "Singapore Election Trends Analysis"
+    footer-url: ""
     footer-color: "ebcfb2"
-    keywords: ["Typesetting", "Typst", "Quarto"]
+    keywords: ["Elections", "Data Analysis", "Visualization", "Singapore"]
 ---
 
-# Lorem Ipsum Dolor
+# Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, om- nis dolor repellendus. Temporibus autem quibusdam et.
+This analysis explores the trends and patterns in Singapore's Parliamentary General Elections, focusing on historical data to uncover insights about voting patterns, constituency changes, and electoral dynamics over time.
 
-![Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.](./images/Rosetta_stone.png){width="50%"}
+# Data Sources
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non pos- sit. At.
+Our analysis utilizes official election data from:
 
-# Lorem ipsum
+- **Elections Department Singapore (ELD)**: Parliamentary General Election Results, candidate information, and voter statistics from https://www.eld.gov.sg/homepage.html
+- **Regional Classification**: Manual processing to classify constituencies into regions based on Urban Redevelopment Authority (URA) planning areas from https://www.ura.gov.sg/Corporate
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri.
 
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
+# Methodology & Tools
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut.
+Our analytical approach combines:
 
-| Lorem ipsum dolor sit. | Lorem ipsum. | Lorem ipsum. |
-|------------------------|--------------|--------------|
-| Lorem ipsum dolor.     | Lorem ipsum. | $\alpha$     |
-| Lorem ipsum.           | Lorem ipsum. | $\beta$      |
-| Lorem.                 | Lorem.       | $\gamma$     |
-| Lorem ipsum dolor.     | Lorem.       | $\theta$     |
+- **Python** for data preprocessing and statistical analysis
+- **R & ggplot2** for advanced visualization
+- **Quarto** for reproducible research documentation  
+- **Specialized libraries** including tidyverse and plotly
 
-: Lorem ipsum dolor sit amet {#tbl-1}
+# Original Visualization
 
-Lorem @tbl-1 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et.
+![Previous visualization of election data](./images/previous_visualization.png){width="70%"}
 
-## Lorem ipsum dolor sit amet
+**Figure 1:** Previous visualization approach
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre.
+The original visualization presented several challenges: limited visual hierarchy, minimal interactive capabilities, basic color schemes lacking accessibility, and dense information presentation.
 
-![Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.](./images/Standard_lettering.png){width="100%"}
+# Enhanced Visualization  
 
-# Lorem ipsum dolor.
+![Enhanced visualization with better insights](./images/improved_visualization.png){width="70%"}
 
-::: {.block fill="luma(230)" inset="8pt" radius="4pt"}
+**Figure 2:** Enhanced visualization with modern principles
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplifi- carique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et.
+## Key Improvements
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
+Our redesigned visualization addresses previous limitations:
 
+- **Accurate Percentage Representation**: Vote share percentages now correctly add up to 100%, eliminating mathematical inconsistencies in the original visualization
+- **Clear Trend Indicators**: Implementation of up/down trend tickers (↗ ↘) providing immediate visual cues for electoral performance changes across election cycles
+- **Interactive Data Exploration**: Enhanced hover tooltips and filtering options for deeper data analysis
+- **Improved Visual Hierarchy**: Clear sectioning with progressive information disclosure
+- **Accessibility-First Design**: Color-blind friendly palettes with high contrast ratios
+- **Regional Classification**: Constituencies grouped by URA planning regions for meaningful geographic analysis
+
+# Research Impact
+
+::: {.callout-note}
+## Editorial Board Proposal
+
+Our enhanced visualization offers significant advantages:
+
+**Accessibility & Inclusion**
+- Makes complex electoral data comprehensible to diverse audiences
+- Implements universal design principles
+- Reduces barriers to civic engagement
+
+**Analytical Depth**
+- Enables identification of subtle voting patterns  
+- Facilitates comparative analysis across constituencies
+- Supports evidence-based political discourse
+
+**Engagement & Education**
+- Increases reader interaction and comprehension
+- Supports multimedia storytelling approaches
+- Enhances public understanding of democratic processes
+
+**Editorial Advantages**
+- Streamlines complex data presentation workflows
+- Enables rapid adaptation for different story angles
+- Provides reusable templates for future coverage
+
+This toolkit represents a significant advancement in electoral data presentation.
 :::
 
-## Lorem ipsum etiam
+# Key Findings & Insights
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. 
+Our analysis revealed several significant trends in Singapore's electoral landscape:
 
-## Lorem ipsum possimus
+## Voter Participation Trends
+- **Increasing Turnout**: Steady rise in voter participation from 1988 to 2020
+- **Demographic Shifts**: Notable changes in age group voting patterns
+- **Geographic Variations**: Distinct voting behaviors across different constituencies
 
-Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, om- nis dolor repellendus. Temporibus autem quibusdam et.
+## Electoral Competition Patterns
+- **Multi-party Evolution**: Growth in opposition party participation
+- **Constituency Changes**: Impact of electoral boundary modifications
+- **Candidate Diversity**: Increasing representation across demographic groups
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. 
-
-![Temperature and ozone level](images/fig-airquality-1.svg)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, om- nis dolor repellendus. Temporibus autem quibusdam et.
-
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-  - Lorem ipsum dolor sit amet.
-  -  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. 
-  - Lorem ipsum dolor sit amet, consectetur adipiscing.
-
-$$
-\sum_(k=1)^n k = \frac{(n(n+1))}{2} = \frac{(n^2 + n)}{2}
-$$

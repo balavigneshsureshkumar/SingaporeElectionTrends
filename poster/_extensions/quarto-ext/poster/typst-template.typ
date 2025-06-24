@@ -23,7 +23,7 @@
   footer_url: "Footer URL",
 
   // Email IDs of the authors.
-  footer_email_ids: "Email IDs (separated by commas)",
+  footer_email_ids: "2301140@sit.singaporetech.edu.sg",
 
   // Color of the footer.
   footer_color: "Hex Color Code",
@@ -107,7 +107,62 @@
       )
     ]
   )
+  
+  
+// Better image handling in columns
+show figure: it => {
+  set block(breakable: false, spacing: 0.6em)
+  set align(center)
+  
+  // Reduce spacing around images to fit better in columns
+  block(above: 0.5em, below: 0.8em, it)
+}
 
+// Tighter spacing for content after column breaks
+show heading: it => context {
+  let loc = here()
+  let levels = counter(heading).at(loc)
+  let deepest = if levels != () {
+    levels.last()
+  } else {
+    1
+  }
+
+  set block(breakable: false)
+  
+  set text(24pt, weight: 400)
+  if it.level == 1 [
+    #set align(center)
+    #set text({ 32pt })
+    #show: smallcaps
+    #v(15pt, weak: true)  // Reduced from 30pt
+    #if it.numbering != none {
+      numbering("I.", deepest)
+      h(7pt, weak: true)
+    }
+    #it.body
+    #v(10pt, weak: true)  // Reduced from 20pt
+    #line(length: 100%)
+    #v(8pt, weak: true)   // Reduced from 15pt
+  ] else if it.level == 2 [
+    #set text(style: "italic")
+    #v(15pt, weak: true)  // Reduced from 25pt
+    #if it.numbering != none {
+      numbering("i.", deepest)
+      h(7pt, weak: true)
+    }
+    #it.body
+    #v(8pt, weak: true)   // Reduced from 10pt
+  ] else [
+    #v(10pt, weak: true)  // Reduced from 15pt
+    #if it.level == 3 {
+      numbering("1)", deepest)
+      [ ]
+    }
+    _#(it.body):_
+    #v(6pt, weak: true)   // Reduced from 8pt
+  ]
+}
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 0.65em)
@@ -115,6 +170,17 @@
   // Configure lists.
   set enum(indent: 10pt, body-indent: 9pt)
   set list(indent: 10pt, body-indent: 9pt)
+
+  // Configure figures to stay with their content and improve spacing
+  show figure: it => {
+    set block(breakable: false, spacing: 1.2em)
+    set align(center)
+    block(
+      above: 0.8em,
+      below: 1.2em,
+      it
+    )
+  }
 
   // Configure headings.
   //set heading(numbering: "I.A.1.")
@@ -128,24 +194,28 @@
       1
     }
 
+    // Ensure headings stay with their content
+    set block(breakable: false)
+    
     set text(24pt, weight: 400)
     if it.level == 1 [
       // First-level headings are centered smallcaps.
       #set align(center)
       #set text({ 32pt })
       #show: smallcaps
-      #v(50pt, weak: true)
+      #v(30pt, weak: true)
       #if it.numbering != none {
         numbering("I.", deepest)
         h(7pt, weak: true)
       }
       #it.body
-      #v(35.75pt, weak: true)
+      #v(20pt, weak: true)
       #line(length: 100%)
+      #v(15pt, weak: true)
     ] else if it.level == 2 [
       // Second-level headings are run-ins.
       #set text(style: "italic")
-      #v(32pt, weak: true)
+      #v(25pt, weak: true)
       #if it.numbering != none {
         numbering("i.", deepest)
         h(7pt, weak: true)
@@ -154,11 +224,13 @@
       #v(10pt, weak: true)
     ] else [
       // Third level headings are run-ins too, but different.
+      #v(15pt, weak: true)
       #if it.level == 3 {
         numbering("1)", deepest)
         [ ]
       }
       _#(it.body):_
+      #v(8pt, weak: true)
     ]
   }
 
@@ -170,7 +242,7 @@
       column-gutter: 0pt,
       row-gutter: 50pt,
       text(title_font_size, title + "\n\n") + 
-      text(authors_font_size, emph("Team Oldlace\n")) + 
+      text(authors_font_size, emph("Team Navy\n")) + 
       text(authors_font_size, emph(authors) + 
           "   (" + departments + ") "),
       image(univ_logo, width: univ_logo_scale),
