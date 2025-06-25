@@ -5,7 +5,9 @@ date: "2025-05-28"
 format: html
 editor: visual
 ---
+
 # Load Libraries
+
 ```{r}
 #| label: load-packages
 #| message: false
@@ -24,6 +26,7 @@ options(warn = 1)
 ```
 
 # Data Cleaning and Preparation
+
 ```{r}
 #| label: data-clean & data preparation
 # Step 1: Read and clean the data
@@ -110,7 +113,7 @@ suppressWarnings(suppressMessages({
     mutate(
       label = case_when(
         is.na(last_vote_share) ~ "",
-        performance_trend == "↑" ~ paste0("<span style='color:green;'>", round(last_vote_share, 1), "% ↑</span>"),
+        performance_trend == "↑" ~ paste0("<span style='color:#228B22;font-weight:bold;'>", round(last_vote_share, 1), "% ↑</span>"),
         performance_trend == "↓" ~ paste0("<span style='color:red;'>", round(last_vote_share, 1), "% ↓</span>"),
         performance_trend == "→" ~ paste0("<span style='color:gray;'>", round(last_vote_share, 1), "% →</span>"),
         TRUE ~ ""
@@ -128,10 +131,14 @@ print(region_table_long, n = Inf)
 
 ```
 
-
 # Render Plots
+
 ```{r}
 #| label: render-plots
+#| fig-width: 14
+#| fig-height: 8
+#| fig-dpi: 300
+#| out-width: "100%"
 # STEP B: Table plot using rich text formatting
 suppressWarnings({
 table_plot <- ggplot(region_table_long, aes(x = region, y = fct_rev(party_clean))) +
@@ -139,19 +146,20 @@ table_plot <- ggplot(region_table_long, aes(x = region, y = fct_rev(party_clean)
   geom_richtext(
     aes(label = label),
     fill = NA, label.color = NA,
-    size = 3, hjust = 0.5, vjust = 0.6,
+    size = 3.8, hjust = 0.5, vjust = 0.6,
     label.padding = unit(rep(0, 4), "pt"),
     na.rm = TRUE
   ) +
   scale_x_discrete(position = "top") +
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 14) +
   theme(
-    axis.text.x = element_text(face = "bold", size = 11),
+    axis.text.x = element_text(face = "bold", size = 12, hjust = 0.5),
     axis.text.y = element_blank(),  # Hide y axis text as you did
     panel.grid = element_blank(),
-    plot.caption = element_text(size = 10, hjust = 0, face = "italic", margin = margin(t = 0)),
-    plot.margin = margin(t = 0, r = 0, b = 0, l = 0),
-    axis.title = element_blank()
+    plot.caption = element_text(size = 11, hjust = 0, face = "italic", margin = margin(t = 0)),
+    plot.margin = margin(t = 15, r = 10, b = 0, l = 0),
+    axis.title = element_blank(),
+    panel.spacing.x = unit(0.5, "cm")
   ) +
   labs(
     caption = "Performance difference from party's first election to latest election."
@@ -169,15 +177,15 @@ spark_plot <- ggplot(party_trend, aes(x = year, y = vote_share, group = party_cl
   ) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
   coord_cartesian(clip = "off") +
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 14) +
   theme(
-    strip.text = element_text(face = "bold"),
+    strip.text = element_text(face = "bold", size = 12),
     axis.title = element_blank(),
     legend.position = "none",
     panel.grid.minor = element_blank(),
     plot.margin = margin(t = 0, r = 0, b = 0, l = 0),
-    panel.spacing = unit(1, "lines"),
-    axis.text.x = element_text(angle = 45, hjust = 1)
+    panel.spacing = unit(1.2, "lines"),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 11)
   ) +
   labs(
     title = "Sparkline Trends: Vote Share by Party Across Elections",
@@ -185,7 +193,7 @@ spark_plot <- ggplot(party_trend, aes(x = year, y = vote_share, group = party_cl
   )
 
 # STEP D: Combine sparkline and table with good width ratio
-combined_plot <- spark_plot + table_plot + plot_layout(widths = c(1.75, 1))
+combined_plot <- spark_plot + table_plot + plot_layout(widths = c(2, 1.2))
 
 # Render combined plot
 print(combined_plot)
