@@ -69,7 +69,7 @@
   body
 ) = {
   // Set the body font.
-  set text(font: "STIX Two Text", size: 15.2pt)
+  set text(font: "STIX Two Text", size: 20pt)
   let sizes = size.split("x")
   let width = int(sizes.at(0)) * 1in
   let height = int(sizes.at(1)) * 1in
@@ -252,7 +252,7 @@ show heading: it => context {
   // Start three column mode and configure paragraph properties.
   show: columns.with(num_columns, gutter: 64pt)
   set par(justify: true, first-line-indent: 0em)
-  set par(spacing: 0.65em)
+  
 
   // Display the keywords.
   if keywords != () [
